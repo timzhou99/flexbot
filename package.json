@@ -1,0 +1,26 @@
+{
+  "name": "flexbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timzhou99/flexbot.git"
+  },
+  "author": "Timothy Zhou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timzhou99/flexbot/issues"
+  },
+  "homepage": "https://github.com/timzhou99/flexbot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "mongoose": "^5.10.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
