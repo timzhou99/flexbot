@@ -22,7 +22,6 @@ module.exports = {
         message.guild.channels.create(roomName, { type: 'category' }).then(catChannel => {
             catChannel.setPosition(1);
 
-
            setTimeout(() => message.guild.channels.create('discussion', { type: 'text' }).then(textChannel => {
                textChannel.setParent(catChannel.id);
 
