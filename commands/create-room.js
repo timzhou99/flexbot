@@ -17,10 +17,13 @@ module.exports = {
         if (args[0] === undefined) maxParticipants = 0;
         else maxParticipants = parseInt(args[0]);
 
+        if (maxParticipants > 99) maxParticipants = 0;
+        else if (maxParticipants < 0) maxParticipants = 0;
+
         const roomName = '| ' + roomType[Math.floor((Math.random() * 100) + 1)%2] + String(Math.floor((Math.random() * 100) + 1)).padStart(2,'0') + ' | ― Study Room';
 
         message.guild.channels.create(roomName, { type: 'category' }).then(catChannel => {
-            catChannel.setPosition(1);
+            catChannel.setPosition(message.guild.channels.cache.find(channel => channel.id === process.env.RoomStart).position + 1);
 
            setTimeout(() => message.guild.channels.create('discussion', { type: 'text' }).then(textChannel => {
                textChannel.setParent(catChannel.id);
