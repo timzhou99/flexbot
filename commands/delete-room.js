@@ -1,5 +1,10 @@
 const Room = require('../models/Room');
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 module.exports = {
 
     name: 'delete-room',
@@ -14,8 +19,9 @@ module.exports = {
             }
 
             message.guild.channels.cache.find(channel => channel.id === room.textID).delete();
-            message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete();
-            message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete();
+
+            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete(), 250);
+            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete(), 250);
 
             message.author.send('Successfully deleted **' + room.roomName + "**.");
 

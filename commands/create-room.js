@@ -1,5 +1,9 @@
 const Room = require('../models/Room');
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 module.exports = {
 
     name: 'create-room',
@@ -18,10 +22,11 @@ module.exports = {
         message.guild.channels.create(roomName, { type: 'category' }).then(catChannel => {
             catChannel.setPosition(1);
 
-           message.guild.channels.create('discussion', { type: 'text' }).then(textChannel => {
+
+           setTimeout(() => message.guild.channels.create('discussion', { type: 'text' }).then(textChannel => {
                textChannel.setParent(catChannel.id);
 
-               message.guild.channels.create('Study Lounge', { type: 'voice', userLimit:maxParticipants }).then(voiceChannel => {
+               setTimeout(() => message.guild.channels.create('Study Lounge', { type: 'voice', userLimit:maxParticipants }).then(voiceChannel => {
                   voiceChannel.setParent(catChannel.id);
 
                   const newRoom = new Room({
@@ -39,8 +44,8 @@ module.exports = {
 
                       });
 
-               });
-           });
+               }), 250);
+           }), 250);
         });
     }
 
