@@ -20,8 +20,8 @@ module.exports = {
 
             message.guild.channels.cache.find(channel => channel.id === room.textID).delete();
 
-            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete(), 250);
-            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete(), 250);
+            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete(), 500);
+            setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete(), 1000);
 
             message.author.send('Successfully deleted **' + room.roomName + "**.");
 
