@@ -1,10 +1,5 @@
 const Room = require('../models/Room');
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
 module.exports = {
 
     name: 'delete-room',
@@ -22,6 +17,18 @@ module.exports = {
 
             setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete(), 500);
             setTimeout(() => message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete(), 1000);
+
+            if (room.roomLocked) {
+
+                const membersWithRole = message.guild.roles.cache.get(room.roomRoleID).members;
+
+                membersWithRole.forEach(member => {
+                    member.roles.remove(message.guild.roles.cache.find(role => role.id === room.roomRoleID)).catch(console.error);
+                    member.roles.remove(message.guild.roles.cache.find(role => role.id === process.env.roomAccessID)).catch(console.error);
+                });
+
+                message.guild.roles.cache.find(role => role.id === room.roomRoleID).delete();
+            }
 
             message.author.send('Successfully deleted **' + room.roomName + "**.");
 

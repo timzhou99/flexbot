@@ -10,7 +10,9 @@ const RoomSchema = new mongoose.Schema({
 
     roomCreator: {type: String, required: true},
 
-    roomActive: {type: Boolean, default: true, required: true}
+    roomRoleID: {type: String, required: false},
+
+    roomLocked: {type: Boolean, default: false, required: true}
 
 }, {
     _id: true

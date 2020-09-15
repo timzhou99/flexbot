@@ -1,9 +1,5 @@
 const Room = require('../models/Room');
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 module.exports = {
 
     name: 'create-room',
@@ -20,9 +16,9 @@ module.exports = {
         if (maxParticipants > 99) maxParticipants = 0;
         else if (maxParticipants < 0) maxParticipants = 0;
 
-        const roomName = '| ' + roomType[Math.floor((Math.random() * 100) + 1)%2] + String(Math.floor((Math.random() * 100) + 1)).padStart(2,'0') + ' | ― Study Room';
+        const roomName = roomType[Math.floor((Math.random() * 100) + 1)%2] + String(Math.floor((Math.random() * 100) + 1)).padStart(2,'0');
 
-        message.guild.channels.create(roomName, { type: 'category' }).then(catChannel => {
+        message.guild.channels.create('| ' + roomName + ' | ― Study Room', { type: 'category' }).then(catChannel => {
             catChannel.setPosition(message.guild.channels.cache.find(channel => channel.id === process.env.RoomStart).position + 1);
 
            setTimeout(() => message.guild.channels.create('discussion', { type: 'text' }).then(textChannel => {

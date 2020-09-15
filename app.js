@@ -34,6 +34,8 @@ client.on('message', message => {
         client.commands.get('create-room').execute(message, args);
     } else if (command === 'delete-room' || command === 'dr') {
         client.commands.get('delete-room').execute(message, args);
+    } else if (command === 'lock-room' || command === 'lr') {
+        client.commands.get('lock-room').execute(message, args);
     }
 
 });
