@@ -13,9 +13,9 @@ module.exports = {
                 return;
             }
 
-            message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete();
             message.guild.channels.cache.find(channel => channel.id === room.textID).delete();
             message.guild.channels.cache.find(channel => channel.id === room.voiceID).delete();
+            message.guild.channels.cache.find(channel => channel.id === room.categoryID).delete();
 
             message.author.send('Successfully deleted **' + room.roomName + "**.");
 
