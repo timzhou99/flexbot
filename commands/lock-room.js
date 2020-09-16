@@ -12,7 +12,10 @@ module.exports = {
                 message.reply(`This room cannot be locked.`);
                 return;
             } else if (room.roomCreator !== message.author.id){
-                message.reply('Only room creator has access to lock the room.');
+                message.reply('Only the room creator has access to lock the room.');
+                return;
+            } else if (room.roomLocked) {
+                message.reply('Room is already locked.');
                 return;
             }
 
@@ -27,6 +30,7 @@ module.exports = {
                     VIEW_CHANNEL: false,
                     READ_MESSAGE_HISTORY: false,
                     READ_MESSAGES: false,
+                    SEND_MESSAGES: false,
                     CONNECT: false
                 });
 
@@ -49,7 +53,10 @@ module.exports = {
                     if (err) throw err;
                 });
 
-                message.reply('Successfully locked the room. Let friends join by !invite @User1 @User2');
+                const botspam = message.guild.channels.cache.find(channel => channel.id === process.env.botspamID);
+
+                message.reply(`Successfully locked the room. \n To invite others, go to ${botspam.toString()} and type **!invite @User1 @User2 @User3**`);
+
             });
 
 

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const RoomSchema = new mongoose.Schema({
 
     roomName: {type: String, required: true},
+    roomLimit: {type: Number, required: true},
 
     categoryID: {type: String, required: true},
     textID: {type: String, required: true},
