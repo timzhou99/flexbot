@@ -36,8 +36,22 @@ client.on('message', message => {
         client.commands.get('delete-room').execute(message, args);
     } else if (command === 'lock-room' || command === 'lr') {
         client.commands.get('lock-room').execute(message, args);
-    } else if (command ==='invite') {
+    } else if (command === 'invite') {
         client.commands.get('invite').execute(message, args);
+    } else if (command === 'wl-create') {
+        client.commands.get('wl-create').execute(message, args);
+    } else if (command === 'wl-delete') {
+        client.commands.get('wl-delete').execute(message, args);
+    } else if (command === 'wl-help') {
+        client.commands.get('wl-help').execute(message, args);
+    } else if (command === 'wl-list') {
+        client.commands.get('wl-list').execute(message, args);
+    } else if (command === 'wl-next') {
+        client.commands.get('wl-next').execute(message, args);
+    } else if (command === 'wl-pop') {
+        client.commands.get('wl-pop').execute(message, args);
+    } else if (command === 'wl-join') {
+        client.commands.get('wl-join').execute(message, args);
     }
 
 });
