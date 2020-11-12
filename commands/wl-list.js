@@ -17,7 +17,7 @@ module.exports = {
             return;
         }
 
-        Waitlist.findOne({ waitlistName: args[0].toLowerCase() }, (err, room) => {
+        Waitlist.findOne({ $and:[{waitlistName: args[0].toLowerCase()}, {guildID: message.guild.id}] }, (err, room) => {
 
             if (err) {
                 console.error();
@@ -47,8 +47,6 @@ module.exports = {
                     .setDescription(`${returnList}`)
 
                     .setTimestamp()
-
-
 
                 channel.send(exampleEmbed);
 
