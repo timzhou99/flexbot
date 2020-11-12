@@ -38,19 +38,19 @@ client.on('message', message => {
         client.commands.get('lock-room').execute(message, args);
     } else if (command === 'invite') {
         client.commands.get('invite').execute(message, args);
-    } else if (command === 'wl-create') {
+    } else if (command === 'wl-create' || command === 'wlc') {
         client.commands.get('wl-create').execute(message, args);
-    } else if (command === 'wl-delete') {
+    } else if (command === 'wl-delete' || command === 'wld') {
         client.commands.get('wl-delete').execute(message, args);
-    } else if (command === 'wl-help') {
+    } else if (command === 'wl-help' || command === 'wlh') {
         client.commands.get('wl-help').execute(message, args);
-    } else if (command === 'wl-list') {
+    } else if (command === 'wl-list' || command === 'wll') {
         client.commands.get('wl-list').execute(message, args);
-    } else if (command === 'wl-next') {
+    } else if (command === 'wl-next' || command === 'wln') {
         client.commands.get('wl-next').execute(message, args);
-    } else if (command === 'wl-pop') {
+    } else if (command === 'wl-pop' || command === 'wlp') {
         client.commands.get('wl-pop').execute(message, args);
-    } else if (command === 'wl-join') {
+    } else if (command === 'wl-join' || command === 'wlj') {
         client.commands.get('wl-join').execute(message, args);
     }
 

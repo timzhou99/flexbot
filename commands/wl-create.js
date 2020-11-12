@@ -6,9 +6,6 @@ module.exports = {
     description: "This will create a waitlist.",
     execute(message, args) {
 
-        console.log(args);
-        console.log(args[1]);
-
         if (args[0] === undefined) {
             message.reply('No waitlist specified in command.');
             return;
@@ -19,7 +16,7 @@ module.exports = {
             return;
         }
 
-        Waitlist.findOne({ waitlistName: args[0].toLowerCase() }, (err, room) => {
+        Waitlist.findOne({ $and:[{waitlistName: args[0].toLowerCase()}, {guildID: message.guild.id}] }, (err, room) => {
 
             if (err) {
                 console.error();
@@ -29,14 +26,16 @@ module.exports = {
                 return;
             } else {
 
+                const guildID = message.guild.id;
                 const waitlistTotal = 0;
                 const waitlistMembers = [];
                 const waitlistName = args[0].toLowerCase();
 
                 const newWaitlist = new Waitlist({
-                   waitlistName,
-                   waitlistMembers,
-                   waitlistTotal
+                    guildID,
+                    waitlistName,
+                    waitlistMembers,
+                    waitlistTotal
                 });
 
                 newWaitlist.save()

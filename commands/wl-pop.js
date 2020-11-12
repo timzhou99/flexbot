@@ -16,7 +16,7 @@ module.exports = {
             return;
         }
 
-        Waitlist.findOne({ waitlistName: args[0].toLowerCase() }, (err, room) => {
+        Waitlist.findOne({ $and:[{waitlistName: args[0].toLowerCase()}, {guildID: message.guild.id}] }, (err, room) => {
 
             if (err) {
                 console.error();
@@ -31,10 +31,12 @@ module.exports = {
                     return;
                 }
 
+                const channel = message.guild.channels.cache.find(channel => channel.id === message.channel.id);
+
                 const nextUser = room.waitlistMembers.shift();
                 room.save();
 
-                message.reply(`***${message.guild.members.cache.find(member => member.id === nextUser)}***, you are up! Please join the game.`);
+                channel.send(`***${message.guild.members.cache.find(member => member.id === nextUser)}***, you are up! Please join the game.`);
 
             }
 

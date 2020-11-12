@@ -1,4 +1,5 @@
 const Waitlist = require('../models/Waitlist');
+const Discord = require('discord.js');
 
 module.exports = {
 
@@ -31,15 +32,26 @@ module.exports = {
                     return;
                 }
 
-                let returnList = `**${room.waitlistName}** current waitlist: \n`;
+                const channel = message.guild.channels.cache.find(channel => channel.id === message.channel.id);
+
+                let returnList = '';
 
                 room.waitlistMembers.forEach((user, pos) => {
-
-                    returnList += `**[${pos+1}.]** ***${message.guild.members.cache.find(member => member.id === user).displayName}*** \n`;
-
+                    returnList += `**${pos+1} - ** ${message.guild.members.cache.find(member => member.id === user).displayName} \n`;
                 });
 
-                message.reply(`${returnList}`);
+                const exampleEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(`Current Waitlist for __${room.waitlistName}__`)
+
+                    .setDescription(`${returnList}`)
+
+                    .setTimestamp()
+
+
+
+                channel.send(exampleEmbed);
+
 
             }
 
