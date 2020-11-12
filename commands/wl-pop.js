@@ -31,7 +31,7 @@ module.exports = {
                     return;
                 }
 
-                const nextUser = room.waitlistMembers.pop();
+                const nextUser = room.waitlistMembers.shift();
                 room.save();
 
                 message.reply(`***${message.guild.members.cache.find(member => member.id === nextUser)}***, you are up! Please join the game.`);
