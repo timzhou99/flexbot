@@ -27,7 +27,6 @@ module.exports = {
             } else {
 
                 const guildID = message.guild.id;
-                const waitlistTotal = 0;
                 const waitlistMembers = [];
                 const waitlistName = args[0].toLowerCase();
 
@@ -35,7 +34,6 @@ module.exports = {
                     guildID,
                     waitlistName,
                     waitlistMembers,
-                    waitlistTotal
                 });
 
                 newWaitlist.save()

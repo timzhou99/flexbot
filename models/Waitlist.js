@@ -7,8 +7,6 @@ const WaitlistSchema = new mongoose.Schema({
     waitlistName: {type: String, required: true},
     waitlistMembers: [{type: String, required: false}],
 
-    waitlistTotal: {type: Number, required: true, default: 0},
-
 }, {
     _id: true
 });
