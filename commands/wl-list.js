@@ -37,6 +37,12 @@ module.exports = {
                 let returnList = '';
 
                 room.waitlistMembers.forEach((user, pos) => {
+
+                    if (user === undefined) {
+                        returnList = 'Something went wrong. Please reach out to Tim.';
+                        return;
+                    }
+
                     returnList += `**${pos+1} - ** ${message.guild.members.cache.find(member => member.id === user).displayName} \n`;
                 });
 
@@ -49,7 +55,6 @@ module.exports = {
                     .setTimestamp()
 
                 channel.send(exampleEmbed);
-
 
             }
 
