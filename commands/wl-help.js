@@ -14,14 +14,16 @@ module.exports = {
             .setTitle(`Waitlist Commands`)
             .setAuthor('FlexBot - Waitlist', 'https://cdn.freebiesupply.com/logos/thumbs/2x/flex-logo.png')
             .setThumbnail('https://cdn.freebiesupply.com/logos/thumbs/2x/flex-logo.png')
+            .setDescription(`<field>'s are required, [field]'s are optional`)
 
             .addField("```" + `!wl-create <list-name>` + "```" + " or " + "```" + "!wlc" + "```", 'Creates a new waitlist.', false)
             .addField("```" + `!wl-delete <list-name>` + "```" + " or " + "```" + "!wld" + "```", 'Deletes an active waitlist.', false)
-            .addField("```" + `!wl-join <list-name>` + "```" + " or " + "```" + "!wlj" + "```", 'Adds the user to the waitlist.', false)
-            .addField("```" + `!wl-pop <list-name>` + "```" + " or " + "```" + "!wlp" + "```", 'Removes the first person off the waitlist.', false)
-            .addField("```" + `!wl-remove <list-name>` + "```" + " or " + "```" + "!wlr" + "```", 'Removes yourself from the waitlist.', false)
-            .addField("```" + `!wl-next <list-name>` + "```" + " or " + "```" + "!wln" + "```", 'Find out who the next person is on the waitlist.', false)
-            .addField("```" + `!wl-list <list-name>` + "```" + " or " + "```" + "!wll" + "```", 'See who is on the current waitlist.', false)
+            .addField("```" + `!wl-join <list-name>` + "```" + " or " + "```" + "!wlj" + "```", 'Adds the user to the specified waitlist.', false)
+            .addField("```" + `!wl-pop <list-name>` + "```" + " or " + "```" + "!wlp" + "```", 'Removes the first person off the specified waitlist.', false)
+            .addField("```" + `!wl-remove <list-name> [@user]` + "```" + " or " + "```" + "!wlr" + "```", 'Removes the current/targeted user from the specified waitlist.', false)
+            .addField("```" + `!wl-wipe <list-name>` + "```" + " or " + "```" + "!wlw" + "```", 'Clears the specified waitlist.', false)
+            .addField("```" + `!wl-next <list-name>` + "```" + " or " + "```" + "!wln" + "```", 'Find out who the next person is on the specified waitlist.', false)
+            .addField("```" + `!wl-list <list-name>` + "```" + " or " + "```" + "!wll" + "```", 'See a list of who is currently on the specified waitlist.', false)
 
             .setTimestamp()
             .setFooter('FlexBot Created by iReflex99', 'https://cdn.freebiesupply.com/logos/thumbs/2x/flex-logo.png');

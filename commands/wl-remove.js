@@ -22,13 +22,21 @@ module.exports = {
             } else {
 
                 let exists = false;
+                let findUser = message.author.id;
+
+                if (args[1] !== undefined)
+                    findUser = args[1].substring(3, args[1].length-1);
+
+                const channel = message.guild.channels.cache.find(channel => channel.id === message.channel.id);
 
                 room.waitlistMembers.forEach((user, pos) => {
-                    if (user === message.author.id) {
+                    if (user === findUser) {
 
                         room.waitlistMembers.splice(pos, 1);
                         room.save();
-                        message.reply(`You have been removed from the waitlist.`);
+
+                        channel.send(`***${message.guild.members.cache.find(member => member.id === findUser)}***, you have been removed from the waitlist.`);
+
                         exists = true;
                         return;
                     }
@@ -36,7 +44,7 @@ module.exports = {
 
                 if (exists) return;
 
-                message.reply(`You are currently not on the waiting list.`);
+                channel.send(`***${message.guild.members.cache.find(member => member.id === findUser)}*** is not a valid user or is not in the waiting list.`);
 
             }
 

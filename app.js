@@ -54,6 +54,8 @@ client.on('message', message => {
         client.commands.get('wl-join').execute(message, args);
     } else if (command === 'wl-remove' || command === 'wlr') {
         client.commands.get('wl-remove').execute(message, args);
+    } else if (command === 'wl-wipe' || command === 'wlw') {
+        client.commands.get('wl-wipe').execute(message, args);
     }
 
 });
