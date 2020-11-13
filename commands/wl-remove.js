@@ -24,7 +24,7 @@ module.exports = {
                 let exists = false;
 
                 room.waitlistMembers.forEach((user, pos) => {
-                    if (user === args[1].substring(3, args[1].length-1)) {
+                    if (user === message.author.id) {
 
                         room.waitlistMembers.splice(pos, 1);
                         room.save();
@@ -36,7 +36,7 @@ module.exports = {
 
                 if (exists) return;
 
-                message.reply(`A user under that username does not exist or is not on the waiting list.`);
+                message.reply(`You are currently not on the waiting list.`);
 
             }
 

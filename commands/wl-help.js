@@ -19,7 +19,7 @@ module.exports = {
             .addField("```" + `!wl-delete <list-name>` + "```" + " or " + "```" + "!wld" + "```", 'Deletes an active waitlist.', false)
             .addField("```" + `!wl-join <list-name>` + "```" + " or " + "```" + "!wlj" + "```", 'Adds the user to the waitlist.', false)
             .addField("```" + `!wl-pop <list-name>` + "```" + " or " + "```" + "!wlp" + "```", 'Removes the first person off the waitlist.', false)
-            .addField("```" + `!wl-remove <list-name> <@username>` + "```" + " or " + "```" + "!wlr" + "```", 'Removes the specified user from the waitlist.', false)
+            .addField("```" + `!wl-remove <list-name>` + "```" + " or " + "```" + "!wlr" + "```", 'Removes yourself from the waitlist.', false)
             .addField("```" + `!wl-next <list-name>` + "```" + " or " + "```" + "!wln" + "```", 'Find out who the next person is on the waitlist.', false)
             .addField("```" + `!wl-list <list-name>` + "```" + " or " + "```" + "!wll" + "```", 'See who is on the current waitlist.', false)
 
