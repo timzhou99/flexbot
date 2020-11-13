@@ -38,7 +38,7 @@ module.exports = {
 
                 newWaitlist.save()
                     .then(event => {
-                        message.reply(`Waitlist has been successfully created. Please type !wl-join <${waitlistName}> or !wlg to join the waitlist!`);
+                        message.reply(`Waitlist has been successfully created. Please type !wl-join ${waitlistName} or !wlj to join the waitlist!`);
                     });
 
             }
