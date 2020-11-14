@@ -44,7 +44,7 @@ module.exports = {
                     }
 
                     returnList += `${message.guild.members.cache.find(member => member.id === user)}`;
-                    returnList += '';
+                    returnList += ' ';
                 });
 
                 let messageContent = '';
