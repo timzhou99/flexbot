@@ -44,7 +44,6 @@ module.exports = {
                     }
 
                     returnList += `${message.guild.members.cache.find(member => member.id === user)}`;
-                    returnList += " ";
                 });
 
                 let messageContent = '';
@@ -53,7 +52,7 @@ module.exports = {
                     messageContent += args[i] + ' ';
                 }
 
-                channel.send(`${returnList} ${messageContent}`);
+                channel.send(`${returnList} \n ${messageContent}`);
 
             }
 
