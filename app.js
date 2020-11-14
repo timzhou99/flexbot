@@ -56,6 +56,8 @@ client.on('message', message => {
         client.commands.get('wl-remove').execute(message, args);
     } else if (command === 'wl-wipe' || command === 'wlw') {
         client.commands.get('wl-wipe').execute(message, args);
+    } else if (command === 'wl-broadcast' || command === 'wlb') {
+        client.commands.get('wl-broadcast').execute(message, args);
     }
 
 });

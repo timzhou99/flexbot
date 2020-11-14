@@ -24,6 +24,7 @@ module.exports = {
             .addField("```" + `!wl-wipe <list-name>` + "```" + " or " + "```" + "!wlw" + "```", 'Clears the specified waitlist.', false)
             .addField("```" + `!wl-next <list-name>` + "```" + " or " + "```" + "!wln" + "```", 'Find out who the next person is on the specified waitlist.', false)
             .addField("```" + `!wl-list <list-name>` + "```" + " or " + "```" + "!wll" + "```", 'See a list of who is currently on the specified waitlist.', false)
+            .addField("```" + `!wl-broadcast <list-name> <message>` + "```" + " or " + "```" + "!wlb" + "```", 'Broadcast a message to all of the users currently on the waitlist.', false)
 
             .setTimestamp()
             .setFooter('FlexBot Created by iReflex99', 'https://cdn.freebiesupply.com/logos/thumbs/2x/flex-logo.png');
