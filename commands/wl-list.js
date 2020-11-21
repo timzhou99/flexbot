@@ -43,7 +43,13 @@ module.exports = {
                         return;
                     }
 
-                    returnList += `**${pos+1} - ** ${message.guild.members.cache.find(member => member.id === user).displayName} \n`;
+                    let userName = '';
+
+                    message.guild.members.cache.find(member => member.id === user).then((me) => {
+                        userName = me.displayName;
+                    })
+
+                    returnList += `**${pos+1} - ** ${userName} \n`;
                 });
 
                 const exampleEmbed = new Discord.MessageEmbed()
