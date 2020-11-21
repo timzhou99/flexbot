@@ -43,13 +43,14 @@ module.exports = {
                         return;
                     }
 
-                    let userName = '';
 
-                    message.guild.members.cache.find(member => member.id === user).then((me) => {
-                        userName = me.displayName;
-                    })
+                    try {
+                        returnList += `**${pos+1} - ** ${message.guild.members.cache.find(member => member.id === user).displayName} \n`;
+                    } catch {
+                        message.reply('Waitlist is corrupted, please delete it and create a new one.');
+                    }
 
-                    returnList += `**${pos+1} - ** ${userName} \n`;
+
                 });
 
                 const exampleEmbed = new Discord.MessageEmbed()
