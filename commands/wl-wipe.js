@@ -34,7 +34,7 @@ module.exports = {
                 room.waitlistMembers = [];
                 room.save();
 
-                message.reply(`The ${room.waitlistName} waitlist has been cleared.`);
+                message.reply(`The ${room.waitlistName} waitlist has been wiped.`);
 
             }
 

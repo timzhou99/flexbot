@@ -41,7 +41,7 @@ module.exports = {
                 room.waitlistMembers.push(message.author.id);
                 room.save();
 
-                message.reply(`You have been added to the waitlist. You are currently **${room.waitlistMembers.length}** in line.`);
+                message.reply(`You have joined the waitlist. You are currently **${room.waitlistMembers.length}** in line.`);
 
             }
 

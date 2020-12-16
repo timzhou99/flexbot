@@ -30,6 +30,8 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    /*
+
     if (command === 'create-room' || command === 'cr') {
         client.commands.get('create-room').execute(message, args);
     } else if (command === 'delete-room' || command === 'dr') {
@@ -38,7 +40,11 @@ client.on('message', message => {
         client.commands.get('lock-room').execute(message, args);
     } else if (command === 'invite') {
         client.commands.get('invite').execute(message, args);
-    } else if (command === 'wl-create' || command === 'wlc') {
+    }
+
+     */
+
+    if (command === 'wl-create' || command === 'wlc') {
         client.commands.get('wl-create').execute(message, args);
     } else if (command === 'wl-delete' || command === 'wld') {
         client.commands.get('wl-delete').execute(message, args);
